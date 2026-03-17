@@ -3,6 +3,7 @@ package battleship;
 public class Cell {
     private boolean hasShip;
     private boolean isHit;
+    private Ship ship; // 🔥 new
 
     public Cell() {
         hasShip = false;
@@ -15,6 +16,14 @@ public class Cell {
 
     public void setShip(boolean value) {
         hasShip = value;
+    }
+
+    public void setShipReference(Ship ship) {
+        this.ship = ship;
+    }
+
+    public Ship getShip() {
+        return ship;
     }
 
     public boolean isHit() {

@@ -17,6 +17,7 @@ public class Ship {
     public void addCell(Cell cell) {
         positions.add(cell);
         cell.setShip(true);
+        cell.setShipReference(this); // 🔥 important
     }
 
     public void hit() {
@@ -25,9 +26,5 @@ public class Ship {
 
     public boolean isSunk() {
         return hits >= size;
-    }
-
-    public int getSize() {
-        return size;
     }
 }

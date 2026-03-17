@@ -19,13 +19,11 @@ public class GameController {
         if (cell.hasShip()) {
             game.getStats().recordHit();
 
-            for (Ship s : game.getBoard().getShips()) {
-                if (s.isSunk()) continue;
-                s.hit();
-                if (s.isSunk()) {
-                    JOptionPane.showMessageDialog(null, "Ship Sunk!");
-                }
-                break;
+            Ship ship = cell.getShip();
+            ship.hit();
+
+            if (ship.isSunk()) {
+                return "Sunk";
             }
 
             return "Hit";
